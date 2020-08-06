@@ -1,6 +1,6 @@
 {
   "name": "com.freyaholmer.shaderforge",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "displayName": "ShaderForge",
   "description": "THE Shader Editor for Unity",
   "unity": "2018.1",

@@ -8,9 +8,7 @@ using System.Xml;
 using System.Reflection;
 using System.Net;
 using System.Collections;
-
-
-
+using UnityEditor.VersionControl;
 
 namespace ShaderForge {
 
@@ -141,18 +139,16 @@ namespace ShaderForge {
         {
             try
 			{
-				if (Directory.Exists($"{Application.dataPath}\\ShaderForge\\Editor\\InternalResources"))
+                if (AssetDatabase.GUIDToAssetPath("ad4ac75c5f5ee7647b3522254d45a31b") != string.Empty)
 					return true;
 
 				string currentPath = GetCurrentFileName();
-				Debug.Log(currentPath);
-				int packagesIndex = currentPath.IndexOf("Packages");
-				string packagePath = currentPath.Remove(currentPath.IndexOf("\\", packagesIndex + 1), currentPath.Length - currentPath.IndexOf("\\", packagesIndex));
-				Debug.Log(packagePath);
-				
-                foreach (string sourcePath in Directory.EnumerateFiles(packagePath + "\\ShaderForge\\Editor\\.InternalResources", "*.*", SearchOption.AllDirectories))
+				int packagesIndex = currentPath.IndexOf("Editor");
+				string packagePath = currentPath.Remove(packagesIndex);
+
+				foreach (string sourcePath in Directory.EnumerateFiles(packagePath + "\\Editor\\.InternalResources", "*.*", SearchOption.AllDirectories))
                 {
-					string destinationPath = $"{Application.dataPath.Replace('/', '\\')}{sourcePath.Replace(packagePath, "").Replace(".InternalResources", "InternalResources")}";
+					string destinationPath = $"{Application.dataPath.Replace('/', '\\')}\\ShaderForge\\{sourcePath.Replace(packagePath, "").Replace(".InternalResources", "InternalResources")}";
 
 					if (!Directory.Exists(destinationPath.Remove(destinationPath.LastIndexOf("\\"))))
 						Directory.CreateDirectory(destinationPath.Remove(destinationPath.LastIndexOf("\\")));
