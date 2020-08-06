@@ -1,0 +1,16 @@
+{
+  "name": "com.freyaholmer.shaderforge",
+  "version": "1.4.0",
+  "displayName": "ShaderForge",
+  "description": "THE Shader Editor for Unity",
+  "unity": "2018.1",
+  "keywords": [
+    "shader",
+    "editor",
+    "shaderforge"
+  ],
+  "author": {
+    "name": "Freya Holmer",
+    "url": "https://acegikmo.com"
+  }
+}

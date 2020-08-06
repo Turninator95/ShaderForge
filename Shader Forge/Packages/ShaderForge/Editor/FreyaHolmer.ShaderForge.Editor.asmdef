@@ -1,0 +1,9 @@
+{
+    "name": "FreyaHolmer.ShaderForge.Editor",
+    "references": [
+        "FreyaHolmer.ShaderForge"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}
